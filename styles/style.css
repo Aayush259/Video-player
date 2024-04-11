@@ -79,51 +79,62 @@ label[for="URL-Bar"] {
 }
 
 #video-container {
-    width: 100%;
-    margin-top: 2rem;
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
     justify-content: center;
     align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 #video-container > video {
-    max-width: 100%;
-    max-height: 60vh;
-    border-radius: 25px;
+    width: 98vw;
+    max-width: 800px;
+    max-height: 90vh;
+    border-radius: 8px;
+    background-color: #000;
 }
 
 #video-container > video:focus {
     outline: 0;
-    box-shadow: 0 0 0.1rem 0.1rem #104ca5;
 }
 
-.control-btn-container {
+#close-button {
+    height: 50px;
+    width: 50px;
+    background-color: #FFF;
+    border: none;
+    border-radius: 100px;
+    transition: all 0.1s ease-in-out;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 3;
+    cursor: pointer;
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 8px;
 }
 
-.control-btn {
-    height: 0;
-    width: 0;
-    background-color: transparent;
-    border-radius: 5px;
+#close-button:active {
+    transform: scale(0.9);
 }
 
-#Play-Pause {
-    border-left: 15px solid #000;
-    border-bottom: 15px solid transparent;
-    border-top: 15px solid transparent;
-    border-right: none;
+#close-button > .bar {
+    display: inline-block;
+    width: 45px;
+    height: 4px;
+    border-radius: 4px;
+    background-color: #000;
+    z-index: 4;
 }
 
-#Full-Screen {
-    height: 20px;
-    width: 20px;
-    border-radius: 3px;
-    border: 2px dashed #000;
+#close-button > .bar:nth-child(1) {
+    transform: rotate(45deg);
+}
+
+#close-button > .bar:nth-child(2) {
+    transform: rotate(-45deg);
 }

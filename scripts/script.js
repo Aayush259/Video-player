@@ -6,20 +6,27 @@ const Input = document.querySelector('#URL-Bar');
 // Getting Search button.
 const SearchButton = document.querySelector('#search-btn');
 
-// Adding event listener to Search button.
-SearchButton.addEventListener('click', () => {
-
+const Search = () => {
     // Getting the URL entered by the user.
     const InputURL = Input.value;
 
     // Getting video-container element from DOM.
     const Video = document.querySelector('#video-container');
 
-    Video.innerHTML = `
-    <video src="${InputURL}" autoplay></video>
-    <div class="control-btn-container">
-        <button id="Play-Pause" class="control-btn"></button>
-        <button id="Full-Screen" class="control-btn"></button>
-    </div>
+    Video.style.height = `100vh`;
+    Video.style.width = `100vw`;
+    Video.style.background = `#00000079`;
+
+    Video.innerHTML += `
+    <video src="${InputURL}" controls controlsList="nodownload"></video>
     `
+}
+
+// Adding event listener to Search button.
+SearchButton.addEventListener('click', Search);
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === `Enter`) {
+        Search();
+    }
 })
